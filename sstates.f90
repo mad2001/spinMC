@@ -146,7 +146,7 @@ subroutine field(eff,it,is_int)
   do ii = 1, nnn2 !half of neighbor
     state0 = s_states(:,n_nns(ii*2-1,it))+s_states(:,n_nns(ii*2,it))
     call cross(vec_nD(:,ii),state0,tmpcross)
-    if (mod(it+it/n_l, 2) == 0) then
+    if (mod(it+(it-1)/n_l, 2) == 0) then
       tmpf = tmpf - tmpcross
     else
       tmpf = tmpf + tmpcross
